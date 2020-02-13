@@ -105,7 +105,7 @@ func getScripts(domain string) []string {
 				js := fmt.Sprintf("%s:%s", u.Scheme, js)
 				found = append(found, js)
 			} else {
-				js := fmt.Sprintf("%s://%s/%s", u.Scheme, u.Host, js)
+				js := fmt.Sprintf("%s://%s/%s", u.Scheme, u.Host, strings.TrimPrefix(js, "/"))
 				found = append(found, js)
 			}
 		}
@@ -122,7 +122,7 @@ func getScripts(domain string) []string {
 				js := fmt.Sprintf("%s://%s%s", u.Scheme, u.Host, js)
 				found = append(found, js)
 			} else {
-				js := fmt.Sprintf("%s://%s/%s", u.Scheme, u.Host, js)
+				js := fmt.Sprintf("%s://%s/%s", u.Scheme, u.Host, strings.TrimPrefix(js, "/"))
 				found = append(found, js)
 			}
 		}
